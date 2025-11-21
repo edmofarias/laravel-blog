@@ -7,13 +7,11 @@ use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     */
-    public function test_the_application_returns_a_successful_response(): void
+    public function test_api_posts_endpoint_returns_successful_response(): void
     {
-        $response = $this->get('/');
+        $response = $this->get('/api/posts');
 
         $response->assertStatus(200);
+        $this->assertStringContainsString('application/json', (string) $response->headers->get('content-type'));
     }
 }
