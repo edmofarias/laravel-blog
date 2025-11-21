@@ -3,15 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Traits\HttpResponse;
 use App\Services\Contracts\IPostService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\UnauthorizedException;
 
 class PostController extends Controller
 {
+    use HttpResponse;
+
     protected IPostService $postService;
 
     public function __construct(IPostService $postService)
@@ -91,11 +93,5 @@ class PostController extends Controller
         } catch (\Exception $e) {
             return $this->reponseError('Error fetching posts for user ' . $userId . ': ' . $e->getMessage());
         }
-    }
-
-    private function reponseError(string $message): JsonResponse
-    {
-        Log::error($message);
-        return response()->json(['message' => 'An error occurred'], Response::HTTP_INTERNAL_SERVER_ERROR);
     }
 }

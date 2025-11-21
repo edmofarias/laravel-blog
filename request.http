@@ -1,7 +1,7 @@
-@token = 3|Ywqo357R85OUnlFQHeDX9Rjh0kSSMXlwpS15rj8xe482c44c
+@token = 1|RvOwCVYDAUZtyLuhBRlZDfl77BobgENRSiMfsDJH9c8dcbb0
 
 ### REGISTER
-POST http://joinbrands-api.test/api/register
+POST http://laravel-blog.test/api/register
 Content-Type: application/json
 Accept: application/json
 
@@ -13,7 +13,7 @@ Accept: application/json
 }
 
 ###LOGIN
-POST http://joinbrands-api.test/api/login
+POST http://laravel-blog.test/api/login
 Content-Type: application/json
 Accept: application/json
 
@@ -23,14 +23,14 @@ Accept: application/json
 }
 
 ### LOGOUT
-POST http://joinbrands-api.test/api/logout
+POST http://laravel-blog.test/api/logout
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 #-------------------------------------------------------------------------------------
 
 ### CREATE POST
-POST http://joinbrands-api.test/api/posts
+POST http://laravel-blog.test/api/posts
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -41,19 +41,19 @@ Authorization: Bearer {{token}}
 }
 
 ### LIST ALL POST
-GET http://joinbrands-api.test/api/posts
+GET http://laravel-blog.test/api/posts
 Content-Type: application/json
 
 ### SINGLE POST
-GET http://joinbrands-api.test/api/posts/131
+GET http://laravel-blog.test/api/posts/1
 Content-Type: application/json
 
 ### USER POSTS
-GET http://joinbrands-api.test/api/posts/users/15
+GET http://laravel-blog.test/api/posts/users/15
 Accept: application/json
 
 ### UPDATE POST
-PUT http://joinbrands-api.test/api/posts/19
+PUT http://laravel-blog.test/api/posts/19
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -65,7 +65,16 @@ Authorization: Bearer {{token}}
 #-------------------------------------------------------------------------------------
 
 ### CREATE COMMENT
-POST http://joinbrands-api.test/api/posts/2/comments
+POST http://laravel-blog.test/api/posts/1/comments
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "content": "FIRST COMMENT"
+}
+
+### LIST COMMENT
+GET http://laravel-blog.test/api/posts/1/comments
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
@@ -73,8 +82,8 @@ Authorization: Bearer {{token}}
   "content": "GREAT Great post!2222222"
 }
 
-### LIST COMMENT
-GET http://joinbrands-api.test/api/posts/2/comments
+### UPDATE COMMENT
+PUT http://laravel-blog.test/api/comments/21
 Content-Type: application/json
 Authorization: Bearer {{token}}
 

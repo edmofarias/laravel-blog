@@ -29,7 +29,7 @@ class PostService implements IPostService
 
 	public function find(int $id): ?Post
 	{
-		return Post::with(['comments.user'])->find($id);
+		return Post::with(['comments'])->find($id);
 	}
 
     public function findByUser(int $userId): Collection
