@@ -1,4 +1,4 @@
-@token = 1|RvOwCVYDAUZtyLuhBRlZDfl77BobgENRSiMfsDJH9c8dcbb0
+@token = 2|dYvLspISoByQraHyrOlIIqDO1Msxa5aBJslo1H7R50695fd0
 
 ### REGISTER
 POST http://laravel-blog.test/api/register

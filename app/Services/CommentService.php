@@ -25,7 +25,11 @@ class CommentService implements ICommentService
     public function create(array $data, int $postId): bool
     {
         $post = Post::find($postId);
-
+        
+        if ($post === null) {
+            return false;
+        }
+        
         $validated = Validator::make($data, [
             'content' => 'required|string',
         ])->validate();
