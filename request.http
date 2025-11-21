@@ -1,0 +1,83 @@
+@token = 3|Ywqo357R85OUnlFQHeDX9Rjh0kSSMXlwpS15rj8xe482c44c
+
+### REGISTER
+POST http://joinbrands-api.test/api/register
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "edmo farias",
+  "email": "edmofarias@gmail.com",
+  "password": "123456",
+  "password_confirmation": "123456"
+}
+
+###LOGIN
+POST http://joinbrands-api.test/api/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "edmofarias@gmail.com",
+  "password": "123456"
+}
+
+### LOGOUT
+POST http://joinbrands-api.test/api/logout
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+#-------------------------------------------------------------------------------------
+
+### CREATE POST
+POST http://joinbrands-api.test/api/posts
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "My First Post22222222",
+  "content": "This is the content"
+}
+
+### LIST ALL POST
+GET http://joinbrands-api.test/api/posts
+Content-Type: application/json
+
+### SINGLE POST
+GET http://joinbrands-api.test/api/posts/131
+Content-Type: application/json
+
+### USER POSTS
+GET http://joinbrands-api.test/api/posts/users/15
+Accept: application/json
+
+### UPDATE POST
+PUT http://joinbrands-api.test/api/posts/19
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "UPDATED POST TITLE",
+  "content": "This is the content"
+}
+#-------------------------------------------------------------------------------------
+
+### CREATE COMMENT
+POST http://joinbrands-api.test/api/posts/2/comments
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "content": "GREAT Great post!2222222"
+}
+
+### LIST COMMENT
+GET http://joinbrands-api.test/api/posts/2/comments
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "content": "GREAT Great post!2222222"
+}
